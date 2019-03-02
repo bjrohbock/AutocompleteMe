@@ -46,11 +46,17 @@ public class Term implements Comparable<Term>
 
     public static class PrefixOrder implements Comparator<Term>
     {
+        private int pre;
+        public PrefixOrder(int prefix){
+            pre = prefix;
+        }
 
         @Override
         public int compare(Term o1, Term o2)
         {
-            return o1.query.compareTo(o2.query);
+            String term1 = o1.query.substring(0,pre);
+            String term2 = o2.query.substring(0, pre);
+            return term1.compareTo(term2);
         }
     }
 
