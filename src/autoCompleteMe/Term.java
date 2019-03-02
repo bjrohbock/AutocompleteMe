@@ -1,8 +1,17 @@
 package autoCompleteMe;
 
+/***
+ * CSIS 2420
+ * Assignment AutoComplete Me
+ * Cody Henry
+ * Brad Rohbock
+ *
+ */
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+
 
 
 public class Term implements Comparable<Term>
@@ -61,9 +70,9 @@ public class Term implements Comparable<Term>
     }
 
     // Compare the terms in lexicographic order but using only the first r characters of each query.
-    public static void byPrefixOrder(int r)
+    public static Comparator<Term> byPrefixOrder(int r)
     {
-        //
+        return new PrefixOrder(r);
     }
 
     // Compare the terms in lexicographic order by query.
